@@ -42,9 +42,9 @@ describe("SECOND APP WITH API  ", () => {
   it("API - Get list of categories and check with UI", () => {
     cy.getCategories(); // get categories by API using created command
     cy.visit('http://5.189.186.217/overview');
-    cy.contains(" Асортимент ").click();
     cy.get("@categoriesAPI").then((categoriesAPI) => {
-      cy.get("[href='/categories']").click();
+      cy.contains(" Асортимент ").click();
+     // cy.get("[href='/categories']").click();
       cy.get(".collection > .collection-item").its("length").should("equal", categoriesAPI.length);
       });
   }); 
