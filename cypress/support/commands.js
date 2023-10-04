@@ -29,8 +29,7 @@ Cypress.Commands.add("getCategories", () => {
     }).then((res) => {
       const categories = res.body;
       console.log(categories);
-      cy.wrap(categories).as("categories");
+      cy.wrap(categories).as("categoriesAPI");
       cy.wrap(res).should("have.property", "status", 200);
-      //cy.wrap(categories).as("categories");
     });
   });
