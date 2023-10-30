@@ -6,7 +6,7 @@ describe("Add order ", () => {
     it("Create order", () => {
       cy.visit("http://5.189.186.217/overview/");
       //cy.wait("@lastResponse", { timeout: 7000 });
-      cy.intercept("POST", "http://5.189.186.217/api/order",{statusCode: 201}).as ("Order");
+      cy.intercept("POST", "http://5.189.186.217/api/order").as ("Order");
       cy.contains(" Додати замовлення ").click();
       cy.get(".card.waves-effect.pointer[tabindex='0']").first().click();
       cy.wait(1000);
@@ -23,4 +23,14 @@ describe("Add order ", () => {
         }
       });
 })
+
+it("Check filters", () => {
+  cy.visit("http://5.189.186.217/overview");
+  cy.wait("@lastResponse");
+  cy.contains("Історія").click();
+  cy.get('.page-title > .btn > .material-icons').click();
+  cy.get('input#number').click({force: true }).type(orderNumber);   
+  cy.contains("Применить").click();
+  cy.get('tbody > tr > :nth-child(1)').should('exist');
+  })
 }) 
