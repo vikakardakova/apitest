@@ -1,4 +1,5 @@
 Cypress.Commands.add("LoginApi", () => {
+  cy.intercept("GET", "/api/analytics/overview", {statusCode: 200}).as ("lastResponse");
   cy.request({
     method: "POST",
     url: "http://5.189.186.217/api/auth/login",
@@ -18,7 +19,6 @@ Cypress.Commands.add("LoginApi", () => {
     });
   });
 });
-
 
 
 Cypress.Commands.add("getCategories", () => {

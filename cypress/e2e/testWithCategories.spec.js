@@ -5,6 +5,7 @@ describe("SECOND APP WITH API  ", () => {
 
   it("UI: Overview open", () => {
     cy.visit("http://5.189.186.217/overview");
+    cy.wait("@lastResponse", { timeout: 7000 });
     cy.contains(" Огляд ");
   });
   it("UI: Analytics open", () => {
@@ -93,4 +94,5 @@ describe("SECOND APP WITH API  ", () => {
       },
     });
   });
-});
+
+  })
