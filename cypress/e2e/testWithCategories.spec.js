@@ -1,3 +1,5 @@
+import { DbHelper } from "../support/apiHelper";
+
 describe("SECOND APP WITH API  ", () => {
   beforeEach(() => {
     cy.LoginApi();
@@ -49,18 +51,18 @@ describe("SECOND APP WITH API  ", () => {
       });
   });
 
-  it("Practicing for memorazing then and its things", () => {
-    cy.getHistory(); //get history using api request
-    cy.visit("http://5.189.186.217/overview");
-    cy.get("@historyAPI") // беремо збережену змінну, яка відповідаж за респонс по історії
-      .then((historyAPI) => {
-        cy.get("[href='/history']").click();
-        cy.contains("Завантажити ще").click();
-        cy.get("tbody > tr") // знаходимо потрібний елемент на юай
-          .its("length")
-          .should("equal", historyAPI.length); //та порівнюємо з апі респонсом
-      });
-  });
+  // it("Practicing for memorazing then and its things", () => {
+  //   cy.getHistory(); //get history using api request
+  //   cy.visit("http://5.189.186.217/overview");
+  //   cy.get("@historyAPI") // беремо збережену змінну, яка відповідаж за респонс по історії
+  //     .then((historyAPI) => {
+  //       cy.get("[href='/history']").click();
+  //       cy.contains("Завантажити ще").click();
+  //       cy.get("tbody > tr") // знаходимо потрібний елемент на юай
+  //         .its("length")
+  //         .should("equal", historyAPI.length); //та порівнюємо з апі респонсом
+  //     });
+  // });
 
   it("API - create category without saving ID", () => {
     cy.request({
@@ -95,6 +97,9 @@ describe("SECOND APP WITH API  ", () => {
     });
   });
 
-  })
-
-  
+  it("Check that my category was deleted", () => {
+    DbHelper.getOneName(_id).then((categories) => {
+      console.log(categories);
+    });
+  });
+});

@@ -4,6 +4,6 @@ export class DbHelper {
     }
 
     static getOneName (name) {
-        return cy.findOne({name}, {collection: "categories"});
+        return cy.findOne({name:name}, {collection: "categories"});
     }
 }
