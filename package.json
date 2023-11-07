@@ -5,7 +5,7 @@
   "main": "cypress.config.js",
   "scripts": {
     "cy": "npx cypress open",
-    "cy-safe": "npx cypress open --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/",
+    "cy-safe": "npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/",
     "prepare": "husky install"
   },
   "repository": {
