@@ -1,0 +1,34 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "my settings",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cy": "npx cypress open",
+    "cy-safe": "npx cypress open --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "module",
+    "url": "https://github.com/vikakardakova/apitest.git"
+  },
+  "keywords": [
+    "api",
+    "project"
+  ],
+  "author": "Viktoriia",
+  "license": "ISC",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "cypress": "^13.3.0",
+    "cypress-mongodb": "^6.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/vikakardakova/apitest/issues"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-plugin-cypress": "^2.15.1",
+    "husky": "^8.0.3"
+  }
+}
