@@ -13,6 +13,7 @@ pipeline {
         stage("Dependencies") {
             steps {
                 sh 'npm i'
+                sh './node_modules/.bin/cypress install --force'
             }
         }
         stage("Run tests") {
