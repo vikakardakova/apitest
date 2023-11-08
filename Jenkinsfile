@@ -5,9 +5,9 @@ pipeline {
     environment {
         HOME = "${env.WORKSPACE}" 
     }
-    options {
-        ansiColor{"xterm"}
-    }
+    // options {
+    //     ansiColor{"xterm"}
+    // }
 
     stages {
         stage("Dependencies") {
