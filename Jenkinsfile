@@ -20,7 +20,7 @@ pipeline {
                 sh 'npm run cy-safe'
             }
     }
-
+    }
     post {
         always {
             sh 'npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json'
@@ -28,5 +28,5 @@ pipeline {
             cleanWs()
         }
     }
-}
+
 }
