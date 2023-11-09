@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Run tests') {
             steps {
-                sh 'npm run cy-safe'
+                sh 'npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/'
             }
     }
     }
