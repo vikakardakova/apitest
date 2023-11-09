@@ -5,14 +5,15 @@ pipeline {
     environment {
         HOME = "${env.WORKSPACE}" 
     }
-    // options {
-    //     ansiColor{"xterm"}
-    // }
+    options {
+        ansiColor{"xterm"}
+    }
 
     stages {
         stage("Dependencies") {
             steps {
                 sh 'npm i'
+                sh 'npm ci --cache-folder=/var/lib/jenkins/workspace/NovemberV/.cache/Cypress'
             }
         }
         stage("Run tests") {
