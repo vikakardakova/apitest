@@ -13,7 +13,6 @@ pipeline {
         stage("Dependencies") {
             steps {
                 sh 'npm i'
-                sh './node_modules/.bin/cypress install --force'
             }
         }
         stage("Run tests") {
@@ -22,12 +21,12 @@ pipeline {
             }
     }
     }
-    post {
-        always {
-            sh 'npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json'
-            // publishHTML([allowMissing: false, alwaysLinkToLastBuild:false, keepAll: true, reportDir: 'mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'My report'])
-            cleanWs()
-        }
-    }
+    // post {
+    //     always {
+    //         sh 'npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json'
+    //         publishHTML([allowMissing: false, alwaysLinkToLastBuild:false, keepAll: true, reportDir: 'mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'My report'])
+    //         cleanWs()
+    //     }
+    // }
 
 }
