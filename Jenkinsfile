@@ -64,9 +64,9 @@ pipeline{
 
         always {
 
-            sh 'npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json'
+            // sh 'npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json'
 
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            // publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
 
             cleanWs()
 
