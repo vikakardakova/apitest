@@ -38,7 +38,7 @@ pipeline{
 
                     steps {
 
-                        sh 'npm run cy:run:firefox'
+                        sh 'npm run cy-safe --firefox'
 
                     }
 
@@ -48,7 +48,7 @@ pipeline{
 
                     steps {
 
-                        sh 'npm run cy:run:chrome'
+                        sh 'npm run cy-safe --chrome'
 
                     }
 
